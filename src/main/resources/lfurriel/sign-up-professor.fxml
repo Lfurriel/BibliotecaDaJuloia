@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="244.0" style="-fx-background-color: fda0d6;">
+            <children>
+                <ImageView fitHeight="237.0" fitWidth="250.0" layoutX="2.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@GatoLendo.png" />
+                    </image></ImageView>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="400.0" prefWidth="364.0">
+            <children>
+                <Label layoutX="15.0" layoutY="14.0" text="Nome:" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="15.0" layoutY="33.0" prefHeight="19.0" prefWidth="331.0" promptText="Miguel da Silva">
+                    <font>
+                        <Font name="JetBrains Mono Regular" size="15.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="16.0" layoutY="302.0" text="Senha:" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                    </font>
+                </Label>
+                <PasswordField layoutX="15.0" layoutY="324.0" prefHeight="31.0" prefWidth="331.0" promptText="Senha">
+                    <font>
+                        <Font name="JetBrains Mono Regular" size="15.0" />
+                    </font>
+                </PasswordField>
+                <Button layoutX="98.0" layoutY="361.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Cadastrar" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                    </font>
+                </Button>
+                <Label layoutX="14.0" layoutY="72.0" text="Matrícula:" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="15.0" layoutY="93.0" prefHeight="31.0" prefWidth="331.0" promptText="221047649">
+                    <font>
+                        <Font name="JetBrains Mono Regular" size="15.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="14.0" layoutY="132.0" text="CPF:" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="15.0" layoutY="153.0" prefHeight="31.0" prefWidth="331.0" promptText="346.992.550-00">
+                    <font>
+                        <Font name="JetBrains Mono Regular" size="15.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="15.0" layoutY="190.0" text="Departamento:" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="15.0" layoutY="211.0" prefHeight="31.0" prefWidth="331.0" promptText="DCCE">
+                    <font>
+                        <Font name="JetBrains Mono Regular" size="15.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="15.0" layoutY="250.0" text="Titulação:" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="16.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="15.0" layoutY="271.0" prefHeight="31.0" prefWidth="331.0" promptText="Mestre">
+                    <font>
+                        <Font name="JetBrains Mono Regular" size="15.0" />
+                    </font>
+                </TextField>
+            </children></AnchorPane>
+    </children>
+</HBox>

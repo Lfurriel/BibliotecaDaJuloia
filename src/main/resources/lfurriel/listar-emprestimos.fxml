@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.ListarEmprestimosController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="244.0" style="-fx-background-color: fda0d6;">
+            <children>
+                <ImageView fitHeight="237.0" fitWidth="250.0" layoutX="2.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@GatoLendo.png" />
+                    </image></ImageView>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="400.0" prefWidth="364.0">
+            <children>
+                <Button fx:id="proximo" layoutX="217.0" layoutY="355.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Proximo" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                    </font>
+                </Button>
+                <Label layoutX="11.0" layoutY="27.0" text="BIBLIOTECA DA JULOIA" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                    </font>
+                </Label>
+                <Label fx:id="classe" layoutX="11.0" layoutY="89.0" text="Item" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="id" layoutX="316.0" layoutY="89.0" text="ID" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="titulo" layoutX="11.0" layoutY="126.0" text="Titulo">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="autor" layoutX="12.0" layoutY="156.0" text="Autor">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label fx:id="dataEmprestimo" layoutX="11.0" layoutY="230.0" text="14/05/2020">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="12.0" layoutY="273.0" text="Data Previsão:">
+                    <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="sair" layoutX="14.0" layoutY="355.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Sair" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                    </font>
+                </Button>
+            <Label layoutX="11.0" layoutY="206.0" text="Data Empestimo:">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="dataPrevisao" layoutX="11.0" layoutY="296.0" text="10/08/2020">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="20.0" />
+               </font>
+            </Label>
+            </children></AnchorPane>
+    </children>
+</HBox>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.PegarEmprestimoController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="244.0" style="-fx-background-color: fda0d6;">
+            <children>
+                <ImageView fitHeight="237.0" fitWidth="250.0" layoutX="2.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@GatoLendo.png" />
+                    </image></ImageView>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="400.0" prefWidth="364.0">
+            <children>
+                <Label layoutX="11.0" layoutY="27.0" text="BIBLIOTECA DA JULOIA" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                    </font>
+                </Label>
+                <Button fx:id="ok" layoutX="211.0" layoutY="355.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="OK" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                    </font>
+                </Button>
+                <Label layoutX="11.0" layoutY="67.0" text="Insira o ID ou Título:">
+                    <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="input" layoutX="11.0" layoutY="89.0" prefHeight="25.0" prefWidth="338.0" promptText="Professor change suddenly past federal.">
+                    <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                    </font>
+                </TextField>
+                <Label fx:id="alerta" alignment="CENTER" layoutX="35.0" layoutY="243.0" prefHeight="29.0" prefWidth="290.0">
+                    <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                    </font>
+                </Label>
+            <Label layoutX="11.0" layoutY="132.0" text="Insira a data de hoje:">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="dia" alignment="CENTER" layoutX="11.0" layoutY="159.0" prefHeight="25.0" prefWidth="38.0" promptText="dd">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="mes" alignment="CENTER" layoutX="66.0" layoutY="159.0" prefHeight="25.0" prefWidth="38.0" promptText="mm">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="ano" alignment="CENTER" layoutX="121.0" layoutY="159.0" prefHeight="25.0" prefWidth="48.0" promptText="aaaa">
+               <font>
+                  <Font name="Berlin Sans FB" size="12.0" />
+               </font>
+            </TextField>
+            <Label layoutX="53.0" layoutY="160.0" text="/">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="109.0" layoutY="160.0" text="/">
+               <font>
+                  <Font name="Berlin Sans FB" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="sair" layoutX="21.0" layoutY="355.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Sair" textFill="#d90881">
+               <font>
+                  <Font name="JetBrains Mono ExtraBold" size="15.0" />
+               </font>
+            </Button>
+            </children></AnchorPane>
+    </children>
+</HBox>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.MenuUsuarioController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="244.0" style="-fx-background-color: fda0d6;">
+            <children>
+                <ImageView fitHeight="237.0" fitWidth="250.0" layoutX="2.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@GatoLendo.png" />
+                    </image></ImageView>
+            <Label fx:id="alerta" alignment="CENTER" layoutX="14.0" layoutY="328.0" prefHeight="46.0" prefWidth="220.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font></Label>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="400.0" prefWidth="364.0">
+            <children>
+                <Label layoutX="14.0" layoutY="70.0" text="Opção:" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="button_sair" layoutX="217.0" layoutY="355.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Sair" textFill="#d90881">
+                    <font>
+                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
+                    </font>
+                </Button>
+                <Label layoutX="11.0" layoutY="27.0" text="BIBLIOTECA DA JULOIA" textFill="#d90881">
+                    <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                    </font>
+                </Label>
+                <Button fx:id="button_op1" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="97.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Consultar Itens">
+                    <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="button_op2" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="130.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Pesquisar Item Específico">
+                    <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                    </font>
+                </Button>
+                <Button fx:id="button_op3" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="163.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Pagar Multa">
+                    <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                    </font>
+                </Button>
+            <Button fx:id="button_op4" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="200.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Pegar Empréstimo">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_op5" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="239.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Devolver">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_op6" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="272.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Listar Empréstimos">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_op7" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="305.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Estender Empréstimos">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_op8" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Histórico Empréstimos">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
+            </children></AnchorPane>
+    </children>
+</HBox>
