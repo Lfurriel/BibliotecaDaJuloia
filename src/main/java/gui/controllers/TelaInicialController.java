@@ -38,15 +38,23 @@ public class TelaInicialController implements Initializable {
             public void handle(ActionEvent event) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
 
-                if(tf_cpf.getText() != "" && tf_senha.getText() != "") {
+                if(!tf_cpf.getText().equals("") && !tf_senha.getText().equals("")) {
                    try {
                        displayBiblioteca.login(event, tf_cpf.getText(), tf_senha.getText());
+                       DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
                    }  catch (InformacaoInvalidaException e) {
                        erro.setText(e.getMessage());
                    }
                 } else {
                     erro.setText("*Necessário preencher todos os campos");
                 }
+            }
+        });
+
+        button_cadastrar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "op-sign-up.fxml", "Cadastro");
             }
         });
 

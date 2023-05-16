@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.SignUpProfessorController">
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="244.0" style="-fx-background-color: fda0d6;">
             <children>
@@ -21,7 +21,7 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="15.0" layoutY="33.0" prefHeight="19.0" prefWidth="331.0" promptText="Miguel da Silva">
+                <TextField fx:id="tf_nome" layoutX="15.0" layoutY="33.0" prefHeight="19.0" prefWidth="331.0" promptText="Miguel da Silva">
                     <font>
                         <Font name="JetBrains Mono Regular" size="15.0" />
                     </font>
@@ -31,7 +31,7 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                     </font>
                 </Label>
-                <PasswordField layoutX="15.0" layoutY="324.0" prefHeight="31.0" prefWidth="331.0" promptText="Senha">
+                <PasswordField fx:id="tf_senha" layoutX="15.0" layoutY="324.0" prefHeight="31.0" prefWidth="331.0" promptText="Senha">
                     <font>
                         <Font name="JetBrains Mono Regular" size="15.0" />
                     </font>
@@ -46,7 +46,7 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="15.0" layoutY="93.0" prefHeight="31.0" prefWidth="331.0" promptText="221047649">
+                <TextField fx:id="tf_matricula" layoutX="15.0" layoutY="93.0" prefHeight="31.0" prefWidth="331.0" promptText="221047649">
                     <font>
                         <Font name="JetBrains Mono Regular" size="15.0" />
                     </font>
@@ -56,7 +56,7 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="15.0" layoutY="153.0" prefHeight="31.0" prefWidth="331.0" promptText="346.992.550-00">
+                <TextField fx:id="tf_cpf" layoutX="15.0" layoutY="153.0" prefHeight="31.0" prefWidth="331.0" promptText="346.992.550-00">
                     <font>
                         <Font name="JetBrains Mono Regular" size="15.0" />
                     </font>
@@ -66,7 +66,7 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="15.0" layoutY="211.0" prefHeight="31.0" prefWidth="331.0" promptText="DCCE">
+                <TextField fx:id="tf_departamento" layoutX="15.0" layoutY="211.0" prefHeight="31.0" prefWidth="331.0" promptText="DCCE">
                     <font>
                         <Font name="JetBrains Mono Regular" size="15.0" />
                     </font>
@@ -76,7 +76,7 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                     </font>
                 </Label>
-                <TextField layoutX="15.0" layoutY="271.0" prefHeight="31.0" prefWidth="331.0" promptText="Mestre">
+                <TextField fx:id="tf_titulacao" layoutX="15.0" layoutY="271.0" prefHeight="31.0" prefWidth="331.0" promptText="Mestre">
                     <font>
                         <Font name="JetBrains Mono Regular" size="15.0" />
                     </font>

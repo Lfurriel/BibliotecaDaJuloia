@@ -44,6 +44,10 @@ public class Biblioteca {
         return contaLogada;
     }
 
+    public void setContaLogada(Usuario contaLogada) {
+        this.contaLogada = contaLogada;
+    }
+
     public List<Item> getItens() {
         return itens;
     }
@@ -404,7 +408,8 @@ public class Biblioteca {
                 u.validarSenha(senha);
                 contaLogada = u;
                 return;
-            }
+            } else
+                throw new InformacaoInvalidaException("Senha incorreta");
         }
 
         throw new InformacaoInvalidaException("Usuário não encontrado");

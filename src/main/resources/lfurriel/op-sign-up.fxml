@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controllers.OpSignUpController">
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="244.0" style="-fx-background-color: fda0d6;">
             <children>
@@ -21,11 +21,6 @@
                         <Font name="JetBrains Mono ExtraBold" size="20.0" />
                     </font>
                 </Label>
-                <Button fx:id="button_proximo" layoutX="84.0" layoutY="312.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Próximo" textFill="#d90881">
-                    <font>
-                        <Font name="JetBrains Mono ExtraBold" size="15.0" />
-                    </font>
-                </Button>
                 <Label layoutX="11.0" layoutY="27.0" text="BIBLIOTECA DA JULOIA" textFill="#d90881">
                     <font>
                         <Font name="Berlin Sans FB" size="30.0" />
@@ -41,21 +36,21 @@
                         <Font name="JetBrains Mono ExtraLight" size="13.0" />
                     </font>
                 </Button>
-            <RadioButton fx:id="rb_aluno" layoutX="14.0" layoutY="130.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Aluno">
+            <Button fx:id="aluno" layoutX="28.0" layoutY="138.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: fda0d6;" text="Aluno" textFill="#d90881">
                <font>
-                  <Font name="Berlin Sans FB" size="15.0" />
+                  <Font name="Berlin Sans FB" size="20.0" />
                </font>
-            </RadioButton>
-            <RadioButton fx:id="rb_professor" layoutX="11.0" layoutY="176.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Professor">
+            </Button>
+            <Button fx:id="professor" layoutX="28.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: fda0d6;" text="Professor" textFill="#d90881">
                <font>
-                  <Font name="Berlin Sans FB" size="15.0" />
+                  <Font name="Berlin Sans FB" size="20.0" />
                </font>
-            </RadioButton>
-            <RadioButton fx:id="rb_acessor" layoutX="11.0" layoutY="229.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Acessor técnico">
+            </Button>
+            <Button fx:id="acessor" layoutX="30.0" layoutY="261.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: fda0d6;" text="Acessor Técnico" textFill="#d90881">
                <font>
-                  <Font name="Berlin Sans FB" size="15.0" />
+                  <Font name="Berlin Sans FB" size="20.0" />
                </font>
-            </RadioButton>
+            </Button>
             </children></AnchorPane>
     </children>
 </HBox>
