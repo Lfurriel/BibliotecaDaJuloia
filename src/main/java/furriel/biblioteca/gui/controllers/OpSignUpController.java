@@ -18,6 +18,8 @@ public class OpSignUpController implements Initializable {
     private Button professor;
     @FXML
     private Button acessor;
+    @FXML
+    private Button button_entrar;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         aluno.setOnAction(new EventHandler<ActionEvent>() {
@@ -38,6 +40,13 @@ public class OpSignUpController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "sign-up-acessor.fxml", "Cadastrar | Acessor");
+            }
+        });
+
+        button_entrar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "tela-inicial.fxml", "Tela Inicial");
             }
         });
 

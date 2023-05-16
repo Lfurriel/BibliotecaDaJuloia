@@ -2,6 +2,7 @@ package furriel.biblioteca.gui;
 
 
 
+import furriel.biblioteca.HelloApplication;
 import furriel.biblioteca.classes.DisplayBiblioteca;
 import furriel.biblioteca.classes.usuarios.AcessorTecnico;
 import furriel.biblioteca.classes.usuarios.Aluno;
@@ -35,11 +36,13 @@ public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title) {
 
         Parent root = null;
-
+        String path = "D:\\IdeaProjects\\BibliotecaDaJuloia\\src\\main\\resources\\furriel\\biblioteca\\";
         try {
-            root = FXMLLoader.load(DBUtils.class.getResource(fxmlFile));
+            root = FXMLLoader.load(HelloApplication.class.getResource( fxmlFile));
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

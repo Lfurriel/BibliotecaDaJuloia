@@ -61,28 +61,28 @@ public class MenuUsuarioController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-
+                //TODO: Item específico
             }
         });
         button_op3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-
+                //TODO: Pagar Multa
             }
         });
         button_op4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-
+                //TODO: Pegar Empréstimo
             }
         });
         button_op5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-
+                //TODO: Devolver
             }
         });
         button_op6.setOnAction(new EventHandler<ActionEvent>() {
@@ -108,7 +108,7 @@ public class MenuUsuarioController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-
+                //TODO: Estender Emprestimos
             }
         });
         button_op8.setOnAction(new EventHandler<ActionEvent>() {

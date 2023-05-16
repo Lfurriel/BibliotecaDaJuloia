@@ -56,7 +56,7 @@ public class DisplayBiblioteca {
             Usuario user = criaNovoUsuario(campos);
             biblioteca.addUsuario(user);
         }
-
+        this.minhaBiblioteca = biblioteca;
     }
 
     private Item criaNovoItem(String[] campos) {

@@ -408,8 +408,7 @@ public class Biblioteca {
                 u.validarSenha(senha);
                 contaLogada = u;
                 return;
-            } else
-                throw new InformacaoInvalidaException("Senha incorreta");
+            }
         }
 
         throw new InformacaoInvalidaException("Usuário não encontrado");

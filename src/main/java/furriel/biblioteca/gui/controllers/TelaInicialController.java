@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -29,7 +30,7 @@ public class TelaInicialController implements Initializable {
     private Button button_cadastrar;
 
     @FXML
-    private TextField erro;
+    private Label erro;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

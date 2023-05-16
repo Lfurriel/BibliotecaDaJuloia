@@ -35,42 +35,42 @@
                         <Font name="Berlin Sans FB" size="30.0" />
                     </font>
                 </Label>
-                <Button fx:id="button_op1" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="97.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Consultar Itens">
+                <Button fx:id="button_op1" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="97.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="176.0" style="-fx-background-color: transparent;" text="Consultar Itens">
                     <font>
                         <Font name="Berlin Sans FB" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_op2" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="130.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Pesquisar Item Específico">
+                <Button fx:id="button_op2" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="130.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="176.0" style="-fx-background-color: transparent;" text="Pesquisar Item Específico">
                     <font>
                         <Font name="Berlin Sans FB" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_op3" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="163.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Pagar Multa">
+                <Button fx:id="button_op3" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="163.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Pagar Multa">
                     <font>
                         <Font name="Berlin Sans FB" size="15.0" />
                     </font>
                 </Button>
-            <Button fx:id="button_op4" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="200.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Pegar Empréstimo">
+            <Button fx:id="button_op4" alignment="BOTTOM_LEFT" layoutX="11.0" layoutY="200.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Pegar Empréstimo">
                <font>
                   <Font name="Berlin Sans FB" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="button_op5" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="239.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Devolver">
+            <Button fx:id="button_op5" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="239.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Devolver">
                <font>
                   <Font name="Berlin Sans FB" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="button_op6" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="272.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Listar Empréstimos">
+            <Button fx:id="button_op6" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="272.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Listar Empréstimos">
                <font>
                   <Font name="Berlin Sans FB" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="button_op7" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="305.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Estender Empréstimos">
+            <Button fx:id="button_op7" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="305.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Estender Empréstimos">
                <font>
                   <Font name="Berlin Sans FB" size="15.0" />
                </font>
             </Button>
-            <Button fx:id="button_op8" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="275.0" style="-fx-background-color: transparent;" text="Histórico Empréstimos">
+            <Button fx:id="button_op8" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Histórico Empréstimos">
                <font>
                   <Font name="Berlin Sans FB" size="15.0" />
                </font>

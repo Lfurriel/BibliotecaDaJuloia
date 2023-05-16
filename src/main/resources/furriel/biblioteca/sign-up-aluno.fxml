@@ -66,7 +66,7 @@
                   <Font name="Berlin Sans FB" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_cuso" layoutX="15.0" layoutY="211.0" prefHeight="31.0" prefWidth="331.0" promptText="Ciência da Computação">
+            <TextField fx:id="tf_curso" layoutX="15.0" layoutY="211.0" prefHeight="31.0" prefWidth="331.0" promptText="Ciência da Computação">
                <font>
                   <Font name="JetBrains Mono Regular" size="15.0" />
                </font>
