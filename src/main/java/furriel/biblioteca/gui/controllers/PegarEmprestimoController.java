@@ -2,6 +2,7 @@ package furriel.biblioteca.gui.controllers;
 
 import furriel.biblioteca.classes.Biblioteca;
 import furriel.biblioteca.classes.itens.Item;
+import furriel.biblioteca.exceptions.IndisponivelException;
 import furriel.biblioteca.exceptions.InformacaoInvalidaException;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
@@ -45,14 +46,16 @@ public class PegarEmprestimoController implements Initializable {
                     if (item == null) {
                         alerta.setText("Item não encontrado");
                     } else {
-                        if(item.getQuantidadeDisponivel() > 0) {
-                            try {
-                                biblioteca.adicionarEmprestimoGUI(item, ano.getText(), dia.getText(), mes.getText());
-                            } catch (InformacaoInvalidaException e) {
-                                alerta.setText(e.getMessage());
-                            }
-                        } else {
-                            alerta.setText("Item indisponível");
+                        try {
+                            biblioteca.adicionarEmprestimoGUI(item, dia.getText(), mes.getText(), ano.getText());
+                            item.emprestarItem();
+                            input.setText("");
+                            dia.setText("");
+                            mes.setText("");
+                            ano.setText("");
+                            alerta.setText("OBRIGADO!");
+                        } catch (InformacaoInvalidaException | IndisponivelException e) {
+                            alerta.setText(e.getMessage());
                         }
                     }
                 }

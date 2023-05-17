@@ -33,8 +33,8 @@ public class Professor extends Usuario {
 
     @Override
     public double verificaMulta(Emprestimo emprestimo) {
-        Date dataReal = Utils.lerData();
-        emprestimo.setDevolucaoReal(dataReal);
+
+        Date dataReal = emprestimo.getDevolucaoReal();
         Date dataPrevista = emprestimo.getDevolucaoPrevista();
 
         long diferencaDias = Utils.calculaDiferencaDias(dataPrevista, dataReal);

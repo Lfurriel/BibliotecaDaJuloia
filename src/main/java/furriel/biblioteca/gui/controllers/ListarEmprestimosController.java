@@ -3,6 +3,7 @@ package furriel.biblioteca.gui.controllers;
 import furriel.biblioteca.classes.Biblioteca;
 import furriel.biblioteca.classes.Emprestimo;
 import furriel.biblioteca.classes.itens.Item;
+import furriel.biblioteca.classes.usuarios.Usuario;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -46,19 +47,23 @@ public class ListarEmprestimosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
-        index = 0;
-        if(index <=biblioteca.getContaLogada().getEmprestimos().size())
-            setEmprestimo(biblioteca.getContaLogada().getEmprestimos().get(index));
+        Usuario contaLogada = biblioteca.getContaLogada();
+        iniciar(contaLogada);
         proximo.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                do {
-                    index++;
-                } while (biblioteca.getContaLogada().getEmprestimos().get(index).isDevolvido());
-
-                if(index <=biblioteca.getContaLogada().getEmprestimos().size())
+                index ++;
+                if (index < biblioteca.getContaLogada().getEmprestimos().size() && !contaLogada.getEmprestimos().get(index).isDevolvido())
                     setEmprestimo(biblioteca.getContaLogada().getEmprestimos().get(index));
+                else {
+                    while (index < contaLogada.getEmprestimos().size() && contaLogada.getEmprestimos().get(index).isDevolvido()) {
+                        index++;
+                    }
+                    if (index < biblioteca.getContaLogada().getEmprestimos().size() && !contaLogada.getEmprestimos().get(index).isDevolvido())
+                        setEmprestimo(biblioteca.getContaLogada().getEmprestimos().get(index));
+                }
             }
         });
 
@@ -68,6 +73,15 @@ public class ListarEmprestimosController implements Initializable {
                 DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
             }
         });
+    }
+
+    private void iniciar(Usuario contaLogada) {
+        index = 0;
+        while (index < contaLogada.getEmprestimos().size() && contaLogada.getEmprestimos().get(index).isDevolvido()) {
+            index++;
+        }
+        if (index < contaLogada.getEmprestimos().size() && !contaLogada.getEmprestimos().get(index).isDevolvido())
+            setEmprestimo(contaLogada.getEmprestimos().get(index));
     }
 
     private void setEmprestimo(Emprestimo emprestimo) {

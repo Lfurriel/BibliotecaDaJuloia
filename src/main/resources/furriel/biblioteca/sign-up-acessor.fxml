@@ -31,12 +31,12 @@
                         <Font name="Berlin Sans FB" size="16.0" />
                     </font>
                 </Label>
-                <PasswordField layoutX="15.0" layoutY="324.0" prefHeight="31.0" prefWidth="331.0" promptText="Senha">
+                <PasswordField fx:id="tf_senha" layoutX="15.0" layoutY="324.0" prefHeight="31.0" prefWidth="331.0" promptText="Senha">
                     <font>
                         <Font name="JetBrains Mono Regular" size="15.0" />
                     </font>
                 </PasswordField>
-                <Button layoutX="98.0" layoutY="361.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Cadastrar" textFill="#d90881">
+                <Button fx:id="button_cadastrar" layoutX="98.0" layoutY="361.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="165.0" style="-fx-background-color: #fda0d6; -fx-cursor: hand;" text="Cadastrar" textFill="#d90881">
                     <font>
                         <Font name="JetBrains Mono ExtraBold" size="15.0" />
                     </font>

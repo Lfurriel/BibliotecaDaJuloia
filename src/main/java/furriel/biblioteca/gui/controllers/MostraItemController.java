@@ -79,14 +79,14 @@ public class MostraItemController implements Initializable {
         ano.setText(String.valueOf(item.getAnoDePublicacao()));
         
         if(item instanceof Revista) {
-            extra1.setText(String.valueOf(((Revista) item).getNumero()));
-            extra1.setText(String.valueOf(((Revista) item).getVolume()));
+            extra1.setText("Número: " + ((Revista) item).getNumero());
+            extra2.setText("Volume: " + ((Revista) item).getVolume());
         } else if (item instanceof Livro) {
-            extra1.setText(((Livro) item).getEditora());
-            extra1.setText(((Livro) item).getIsbn());
+            extra1.setText("Editora: " + ((Livro) item).getEditora());
+            extra2.setText("ISBN: " + ((Livro) item).getIsbn());
         } else {
-            extra1.setText(((CD) item).getGravadora());
-            extra1.setText(String.valueOf(((CD) item).getVolume()));
+            extra1.setText("Gravadora: " + ((CD) item).getGravadora());
+            extra2.setText("Volume: " + ((CD) item).getVolume());
         }
     }
 }

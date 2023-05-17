@@ -3,7 +3,9 @@ package furriel.biblioteca.gui.controllers;
 import furriel.biblioteca.classes.Biblioteca;
 import furriel.biblioteca.classes.DisplayBiblioteca;
 import furriel.biblioteca.classes.Emprestimo;
+import furriel.biblioteca.classes.usuarios.Usuario;
 import furriel.biblioteca.gui.DBUtils;
+import furriel.biblioteca.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MenuUsuarioController implements Initializable {
@@ -47,8 +51,6 @@ public class MenuUsuarioController implements Initializable {
     @FXML
     private Label alerta;
 
-    private ToggleGroup toggleGroup;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_op1.setOnAction(new EventHandler<ActionEvent>() {
@@ -60,29 +62,33 @@ public class MenuUsuarioController implements Initializable {
         button_op2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-                //TODO: Item específico
+                DBUtils.changeScene(event, "busca-item.fxml", "Buscar item");
             }
         });
         button_op3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-                //TODO: Pagar Multa
+                Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
+                if (biblioteca.getContaLogada().getMulta() > 0)
+                    DBUtils.changeScene(event, "pagar-multa.fxml", "Pagar multa");
+                else
+                    alerta.setText("SEM MULTA!");
             }
         });
         button_op4.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-                //TODO: Pegar Empréstimo
+                Usuario contaLogada = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca().getContaLogada();
+                if(contaLogada.getMulta() > 0)
+                    alerta.setText("MULTA PENDENTE");
+                else
+                    DBUtils.changeScene(event, "pegar-emprestimo.fxml", "Emprestimo");
             }
         });
         button_op5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-                //TODO: Devolver
+                DBUtils.changeScene(event, "devolver-item.fxml", "Devolução");
             }
         });
         button_op6.setOnAction(new EventHandler<ActionEvent>() {
@@ -107,8 +113,22 @@ public class MenuUsuarioController implements Initializable {
         button_op7.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
-                //TODO: Estender Emprestimos
+                Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
+                boolean temEmrestimo = false;
+                for(Emprestimo e : biblioteca.getContaLogada().getEmprestimos()) {
+                    if(!e.isDevolvido()) {
+                        temEmrestimo = true;
+                        break;
+                    }
+                }
+
+                if(temEmrestimo) {
+                    estenderEmrprestimos(biblioteca);
+                    alerta.setText("ESTENDIDO!");
+                } else
+                    alerta.setText("SEM EMPRÉSTIMOS");
+
+
             }
         });
         button_op8.setOnAction(new EventHandler<ActionEvent>() {
@@ -138,6 +158,16 @@ public class MenuUsuarioController implements Initializable {
                 DBUtils.changeScene(actionEvent, "tela-inicial.fxml", "Tela Inicial");
             }
         });
+    }
+
+    private void estenderEmrprestimos(Biblioteca biblioteca) {
+        Usuario contaLogada = biblioteca.getContaLogada();
+        for (Emprestimo e : contaLogada.getEmprestimos()) {
+            if (!e.isDevolvido()) {
+                Date novaData = Utils.calcularDiaDepoisDeUmMes(e.getDevolucaoPrevista());
+                e.setDevolucaoPrevista(novaData);
+            }
+        }
     }
 
 

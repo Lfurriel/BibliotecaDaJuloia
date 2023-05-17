@@ -42,7 +42,6 @@ public class TelaInicialController implements Initializable {
                 if(!tf_cpf.getText().equals("") && !tf_senha.getText().equals("")) {
                    try {
                        displayBiblioteca.login(event, tf_cpf.getText(), tf_senha.getText());
-                       DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
                    }  catch (InformacaoInvalidaException e) {
                        erro.setText(e.getMessage());
                    }

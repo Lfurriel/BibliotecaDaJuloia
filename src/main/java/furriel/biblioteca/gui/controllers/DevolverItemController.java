@@ -1,7 +1,11 @@
 package furriel.biblioteca.gui.controllers;
 
 import furriel.biblioteca.classes.Biblioteca;
+import furriel.biblioteca.classes.Emprestimo;
 import furriel.biblioteca.classes.itens.Item;
+import furriel.biblioteca.classes.usuarios.Usuario;
+import furriel.biblioteca.exceptions.InformacaoInvalidaException;
+import furriel.biblioteca.exceptions.NaoEmprestadoException;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,36 +18,34 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BuscaItemController implements Initializable {
+public class DevolverItemController implements Initializable {
 
     @FXML
     private TextField input;
     @FXML
     private Label classe;
-
     @FXML
     private Label id;
-
     @FXML
     private Label titulo;
-
     @FXML
     private Label ano;
-
     @FXML
     private Label autor;
-
-    @FXML
-    private Label disponibilidade;
-
     @FXML
     private Label alerta;
-
     @FXML
     private Button procurar;
-
     @FXML
     private Button sair;
+    @FXML
+    private Button devolver;
+    @FXML
+    private TextField dia;
+    @FXML
+    private TextField mes;
+    @FXML
+    private TextField tf_ano;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         inicia();
@@ -54,11 +56,34 @@ public class BuscaItemController implements Initializable {
                 if(input.getText().equals("") || input.getText() == null) {
                     setAlerta("Preencha o campo de busca!");
                 } else {
-                    Item item = biblioteca.buscarItemGUI(input.getText());
-                    if (item != null)
-                        setItem(item);
-                    else
-                        setAlerta("Item não encontrado");
+                    try {
+                        Emprestimo emprestimo = biblioteca.buscaEmprestimoGUI(input.getText());
+                        setItem(emprestimo.getItem());
+                    } catch (NaoEmprestadoException e) {
+                        setAlerta(e.getMessage());
+                    }
+                }
+            }
+        });
+
+        devolver.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
+                Usuario contaLogada = biblioteca.getContaLogada();
+                if(input.getText().equals("") || dia.getText().equals("") || mes.getText().equals("") || tf_ano.getText().equals("")) {
+                    setAlerta("Preencha o campo de busca e data!");
+                } else {
+                    try {
+                        Emprestimo emprestimo = biblioteca.buscaEmprestimoGUI(input.getText());
+                        biblioteca.devolverGUI(emprestimo, dia.getText(), mes.getText(), tf_ano.getText());
+                        double multa = contaLogada.verificaMulta(emprestimo);
+                        if(multa > 0)
+                            contaLogada.setMulta(contaLogada.getMulta() + multa);
+                        setAlerta("Devolvido!");
+                    } catch (NaoEmprestadoException | InformacaoInvalidaException e) {
+                        setAlerta(e.getMessage());
+                    }
                 }
             }
         });
@@ -77,7 +102,6 @@ public class BuscaItemController implements Initializable {
         id.setText("");
         ano.setText("");
         autor.setText("");
-        disponibilidade.setText("");
         titulo.setText("");
     }
 
@@ -87,10 +111,6 @@ public class BuscaItemController implements Initializable {
         id.setText(String.valueOf(item.getId()));
         ano.setText(String.valueOf(item.getAnoDePublicacao()));
         autor.setText(item.getAutor());
-        if(item.getQuantidadeDisponivel() > 0)
-            disponibilidade.setText("Disponível");
-        else
-            disponibilidade.setText("Indisponível");
         titulo.setText(item.getTitulo());
     }
 
@@ -100,7 +120,6 @@ public class BuscaItemController implements Initializable {
         id.setText("");
         ano.setText("");
         autor.setText("");
-        disponibilidade.setText("");
         titulo.setText("");
     }
 }

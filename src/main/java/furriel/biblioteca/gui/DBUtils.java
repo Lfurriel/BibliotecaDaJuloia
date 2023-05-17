@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Objects;
 
 public class DBUtils {
 
@@ -36,9 +37,9 @@ public class DBUtils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title) {
 
         Parent root = null;
-        String path = "D:\\IdeaProjects\\BibliotecaDaJuloia\\src\\main\\resources\\furriel\\biblioteca\\";
+
         try {
-            root = FXMLLoader.load(HelloApplication.class.getResource( fxmlFile));
+            root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource(fxmlFile)));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {

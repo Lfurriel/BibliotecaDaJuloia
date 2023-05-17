@@ -444,4 +444,41 @@ public class Biblioteca {
             throw new InformacaoInvalidaException("Erro ao ler data");
         }
     }
+
+    public void pagarMultaGUI(String senha) throws InformacaoInvalidaException {
+
+        contaLogada.validarSenha(senha);
+        contaLogada.setMulta(0);
+    }
+
+    public Emprestimo buscaEmprestimoGUI(String busca) throws NaoEmprestadoException {
+        int id = -1;
+        if (Utils.verificaNumero(busca))
+            id = Integer.parseInt(busca);
+        for (Emprestimo e : contaLogada.getEmprestimos()) {
+            if(e.getItem().getId() == id || e.getItem().getTitulo().equals(busca)) {
+                return e;
+            }
+        }
+        throw new NaoEmprestadoException("Item não emprestado");
+    }
+
+    public void devolverGUI(Emprestimo emprestimo, String dia, String mes, String ano) throws NaoEmprestadoException, InformacaoInvalidaException {
+        emprestimo.getItem().devolverItem();
+        try {
+            int d = Integer.parseInt(dia);
+            int m = Integer.parseInt(mes);
+            int a = Integer.parseInt(ano);
+
+            m--;
+            a -= 1900;
+
+            Date date = new Date(a, m, d);
+            emprestimo.setDevolvido(true);
+            emprestimo.setDevolucaoReal(date);
+
+        } catch (Exception e) {
+            throw new InformacaoInvalidaException("Erro ao ler data");
+        }
+    }
 }
