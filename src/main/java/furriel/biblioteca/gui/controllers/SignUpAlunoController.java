@@ -2,6 +2,7 @@ package furriel.biblioteca.gui.controllers;
 
 import furriel.biblioteca.classes.Biblioteca;
 import furriel.biblioteca.classes.usuarios.Aluno;
+import furriel.biblioteca.exceptions.InformacaoInvalidaException;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -44,8 +45,12 @@ public class SignUpAlunoController implements Initializable {
                     Aluno aluno = new Aluno(tf_nome.getText(), tf_matricula.getText(),
                             tf_cpf.getText(), tf_senha.getText(),
                             tf_curso.getText(), tf_periodo.getText());
-                    biblioteca.addUsuario(aluno);
-                    biblioteca.setContaLogada(aluno);
+                    try {
+                        biblioteca.addUsuario(aluno);
+                        biblioteca.setContaLogada(aluno);
+                    } catch (InformacaoInvalidaException e) {
+                        System.out.println(e.getMessage());
+                    }
                     DBUtils.changeScene(actionEvent, "menu-usuario.fxml", "MENU");
                 }
             }

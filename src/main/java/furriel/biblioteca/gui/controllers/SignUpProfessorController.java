@@ -2,6 +2,7 @@ package furriel.biblioteca.gui.controllers;
 
 import furriel.biblioteca.classes.Biblioteca;
 import furriel.biblioteca.classes.usuarios.Professor;
+import furriel.biblioteca.exceptions.InformacaoInvalidaException;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -44,8 +45,12 @@ public class SignUpProfessorController implements Initializable {
                     Professor professor = new Professor(tf_nome.getText(), tf_matricula.getText(),
                             tf_cpf.getText(), tf_senha.getText(),
                             tf_departamento.getText(), tf_titulacao.getText());
-                    biblioteca.addUsuario(professor);
-                    biblioteca.setContaLogada(professor);
+                    try {
+                        biblioteca.addUsuario(professor);
+                        biblioteca.setContaLogada(professor);
+                    } catch (InformacaoInvalidaException e) {
+                        System.out.println(e.getMessage());
+                    }
                     DBUtils.changeScene(actionEvent, "menu-usuario.fxml", "MENU");
                 }
             }

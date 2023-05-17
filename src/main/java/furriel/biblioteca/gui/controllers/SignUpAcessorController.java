@@ -2,6 +2,7 @@ package furriel.biblioteca.gui.controllers;
 
 import furriel.biblioteca.classes.Biblioteca;
 import furriel.biblioteca.classes.usuarios.AcessorTecnico;
+import furriel.biblioteca.exceptions.InformacaoInvalidaException;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,8 +43,13 @@ public class SignUpAcessorController implements Initializable {
                     AcessorTecnico acessor = new AcessorTecnico(tf_nome.getText(), tf_matricula.getText(),
                             tf_cpf.getText(), tf_senha.getText(),
                             tf_secao.getText());
-                    biblioteca.addUsuario(acessor);
-                    biblioteca.setContaLogada(acessor);
+                    try {
+                        biblioteca.addUsuario(acessor);
+                        biblioteca.setContaLogada(acessor);
+                    } catch (InformacaoInvalidaException e) {
+                        System.out.println(e.getMessage());
+                    }
+
                     DBUtils.changeScene(actionEvent, "menu-usuario.fxml", "MENU");
                 }
             }

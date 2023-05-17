@@ -40,6 +40,10 @@ public class Biblioteca {
         return cnpj;
     }
 
+    public List<Usuario> getUsuarios(){
+        return usuarios;
+    }
+
     public Usuario getContaLogada() {
         return contaLogada;
     }
@@ -56,7 +60,11 @@ public class Biblioteca {
         itens.add(item);
     }
 
-    public void addUsuario(Usuario usuario) {
+    public void addUsuario(Usuario usuario) throws InformacaoInvalidaException {
+        for (Usuario u : usuarios) {
+            if(u.getCpf().equals(usuario.getCpf()))
+                throw new InformacaoInvalidaException("Usuário ja cadastrado");
+        }
         usuarios.add(usuario);
     }
 

@@ -24,7 +24,7 @@ public class DisplayBiblioteca {
         this.minhaBiblioteca = minhaBiblioteca;
     }
 
-    public DisplayBiblioteca() throws FileNotFoundException {
+    public DisplayBiblioteca() throws FileNotFoundException, InformacaoInvalidaException {
         Biblioteca biblioteca = new Biblioteca("Biblioteca da Juloia", "56.665.209/0001-29");
         File arquivo = new File("files\\itens.txt ");
         Scanner scanner;
