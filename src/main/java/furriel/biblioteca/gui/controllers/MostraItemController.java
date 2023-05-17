@@ -5,6 +5,8 @@ import furriel.biblioteca.classes.itens.Item;
 import furriel.biblioteca.classes.itens.Livro;
 import furriel.biblioteca.classes.itens.Revista;
 import furriel.biblioteca.classes.itens.CD;
+import furriel.biblioteca.classes.usuarios.Administrador;
+import furriel.biblioteca.classes.usuarios.Usuario;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -66,7 +68,11 @@ public class MostraItemController implements Initializable {
         sair.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
+                Usuario contaLogada = biblioteca.getContaLogada();
+                if(contaLogada instanceof Administrador)
+                    DBUtils.changeScene(event, "menu-super.fxml", "MENU | ADM");
+                else
+                    DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
             }
         });
     }

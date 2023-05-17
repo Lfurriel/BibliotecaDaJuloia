@@ -4,10 +4,7 @@ import furriel.biblioteca.classes.itens.CD;
 import furriel.biblioteca.classes.itens.Item;
 import furriel.biblioteca.classes.itens.Livro;
 import furriel.biblioteca.classes.itens.Revista;
-import furriel.biblioteca.classes.usuarios.AcessorTecnico;
-import furriel.biblioteca.classes.usuarios.Aluno;
-import furriel.biblioteca.classes.usuarios.Professor;
-import furriel.biblioteca.classes.usuarios.Usuario;
+import furriel.biblioteca.classes.usuarios.*;
 import furriel.biblioteca.exceptions.IndisponivelException;
 import furriel.biblioteca.exceptions.InformacaoInvalidaException;
 import furriel.biblioteca.exceptions.NaoEmprestadoException;
@@ -25,6 +22,8 @@ public class Biblioteca {
     private Usuario contaLogada;
     private List<Item> itens = new ArrayList<>();
     private List<Usuario> usuarios = new ArrayList<>();
+
+    private static String chaveSecreta = "Biblioteca@Adm12#89";
 
     public Biblioteca(String nome, String cnpj) {
         this.nome = nome;
@@ -153,5 +152,19 @@ public class Biblioteca {
         } catch (Exception e) {
             throw new InformacaoInvalidaException("Erro ao ler data");
         }
+    }
+
+    public void addAdm(Administrador usuario, String chaveSecreta) throws InformacaoInvalidaException {
+        if(Biblioteca.chaveSecreta.equals(chaveSecreta)) {
+            for(Usuario u : usuarios) {
+                if(u.getCpf().equals(usuario.getCpf()))
+                    throw new InformacaoInvalidaException("Usuário com esse cpf já existe");
+            }
+
+            usuarios.add(usuario);
+            contaLogada = usuario;
+        }
+        else
+            throw new InformacaoInvalidaException("Chave secreta iválida");
     }
 }

@@ -77,13 +77,6 @@ public abstract class Usuario {
 
     public abstract double verificaMulta(Emprestimo emprestimo);
 
-    public void adicionarEmprestimo(Item item) {
-        Date dataEmprestimo = Utils.lerData();
-        Date dataPrevista = Utils.calcularDiaDepoisDeUmMes(dataEmprestimo);
-
-        emprestimos.add(new Emprestimo(item, dataEmprestimo, dataPrevista));
-    }
-
     public void adicionarEmprestimo(Item item, Date dataEmprestimo) {
         Date dataPrevista = Utils.calcularDiaDepoisDeUmMes(dataEmprestimo);
 
