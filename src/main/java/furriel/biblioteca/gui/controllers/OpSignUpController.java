@@ -32,7 +32,7 @@ public class OpSignUpController implements Initializable {
         professor.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DBUtils.changeScene(actionEvent, "sign-up-prfessor.fxml", "Cadastrar | Professor");
+                DBUtils.changeScene(actionEvent, "sign-up-professor.fxml", "Cadastrar | Professor");
             }
         });
 
