@@ -1,12 +1,10 @@
 package furriel.biblioteca.gui.controllers;
 
 import furriel.biblioteca.classes.Biblioteca;
-import furriel.biblioteca.classes.itens.Item;
+import furriel.biblioteca.classes.itens.CD;
 import furriel.biblioteca.classes.itens.Livro;
 import furriel.biblioteca.classes.itens.Revista;
-import furriel.biblioteca.classes.itens.CD;
-import furriel.biblioteca.classes.usuarios.Administrador;
-import furriel.biblioteca.classes.usuarios.Usuario;
+import furriel.biblioteca.classes.usuarios.*;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,22 +16,18 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MostraItemController implements Initializable {
+public class ListarUsuariosController implements Initializable {
+    @FXML
+    private Label tipo;
 
     @FXML
-    private Label classe;
+    private Label nome;
 
     @FXML
-    private Label id;
+    private Label matricula;
 
     @FXML
-    private Label titulo;
-
-    @FXML
-    private Label ano;
-
-    @FXML
-    private Label autor;
+    private Label cpf;
 
     @FXML
     private Label extra1;
@@ -54,14 +48,14 @@ public class MostraItemController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
         index = 0;
-        if(index < biblioteca.getItens().size())
-            setItem(biblioteca.getItens().get(index));
+        if (index < biblioteca.getUsuarios().size())
+            setItem(biblioteca.getUsuarios().get(index));
         proximo.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 index++;
-                if(index < biblioteca.getItens().size())
-                    setItem(biblioteca.getItens().get(index));
+                if (index < biblioteca.getUsuarios().size())
+                    setItem(biblioteca.getUsuarios().get(index));
             }
         });
 
@@ -69,7 +63,7 @@ public class MostraItemController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Usuario contaLogada = biblioteca.getContaLogada();
-                if(contaLogada instanceof Administrador)
+                if (contaLogada instanceof Administrador)
                     DBUtils.changeScene(event, "menu-super.fxml", "MENU | ADM");
                 else
                     DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
@@ -77,22 +71,24 @@ public class MostraItemController implements Initializable {
         });
     }
 
-    private void setItem(Item item) {
-        classe.setText(item.toString());
-        id.setText(String.valueOf(item.getId()));
-        titulo.setText(item.getTitulo());
-        autor.setText(item.getAutor());
-        ano.setText(String.valueOf(item.getAnoDePublicacao()));
-        
-        if(item instanceof Revista) {
-            extra1.setText("Número: " + ((Revista) item).getNumero());
-            extra2.setText("Volume: " + ((Revista) item).getVolume());
-        } else if (item instanceof Livro) {
-            extra1.setText("Editora: " + ((Livro) item).getEditora());
-            extra2.setText("ISBN: " + ((Livro) item).getIsbn());
+    private void setItem(Usuario usuario) {
+        tipo.setText(usuario.toString());
+        nome.setText(usuario.getNome());
+        matricula.setText(usuario.getMatricula());
+        cpf.setText(usuario.getCpf());
+
+        if(usuario instanceof Aluno) {
+            extra1.setText(((Aluno) usuario).getCurso());
+            extra2.setText(((Aluno) usuario).getPeriodo());
+        } else if (usuario instanceof Professor) {
+            extra1.setText(((Professor) usuario).getDepartamento());
+            extra2.setText(((Professor) usuario).getTitulacao());
+        } else if (usuario instanceof AcessorTecnico) {
+            extra1.setText(((AcessorTecnico) usuario).getSecao());
+            extra2.setText("");
         } else {
-            extra1.setText("Gravadora: " + ((CD) item).getGravadora());
-            extra2.setText("Volume: " + ((CD) item).getVolume());
+            extra1.setText("");
+            extra2.setText("");
         }
     }
 }

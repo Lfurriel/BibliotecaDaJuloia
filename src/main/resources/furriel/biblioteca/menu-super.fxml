@@ -16,7 +16,8 @@
                 <Label fx:id="alerta" alignment="CENTER" layoutX="14.0" layoutY="328.0" prefHeight="46.0" prefWidth="220.0" textAlignment="CENTER">
                     <font>
                         <Font name="Berlin Sans FB" size="20.0" />
-                    </font></Label>
+                    </font>
+                </Label>
             </children></AnchorPane>
         <AnchorPane prefHeight="400.0" prefWidth="364.0">
             <children>
@@ -40,16 +41,26 @@
                         <Font name="Berlin Sans FB" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="itens" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="166.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Listar Itens">
+                <Button fx:id="itens" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="147.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Listar Itens">
                     <font>
                         <Font name="Berlin Sans FB" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="cadastrar" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="207.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Cadastrar Item">
+                <Button fx:id="cadastrarLivro" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Cadastrar Livro">
                     <font>
                         <Font name="Berlin Sans FB" size="15.0" />
                     </font>
                 </Button>
+            <Button fx:id="cadastrarRevista" alignment="BOTTOM_LEFT" layoutX="16.0" layoutY="200.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Cadastrar Revista">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="cadastrarCd" alignment="BOTTOM_LEFT" layoutX="17.0" layoutY="226.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" style="-fx-background-color: transparent;" text="Cadastrar CD">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Button>
             </children></AnchorPane>
     </children>
 </HBox>

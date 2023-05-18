@@ -44,6 +44,7 @@ public class OpSignUpController implements Initializable {
                 DBUtils.changeScene(actionEvent, "sign-up-acessor.fxml", "Cadastrar | Acessor");
             }
         });
+
         administrador.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {

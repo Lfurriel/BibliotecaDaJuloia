@@ -23,7 +23,7 @@ public class Biblioteca {
     private List<Item> itens = new ArrayList<>();
     private List<Usuario> usuarios = new ArrayList<>();
 
-    private static String chaveSecreta = "Biblioteca@Adm12#89";
+    private static String chaveSecreta = "123";
 
     public Biblioteca(String nome, String cnpj) {
         this.nome = nome;

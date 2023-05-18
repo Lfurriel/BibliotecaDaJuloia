@@ -1,13 +1,12 @@
 package furriel.biblioteca.gui.controllers;
 
-import furriel.biblioteca.classes.Biblioteca;
+import furriel.biblioteca.classes.DisplayBiblioteca;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,9 +18,11 @@ public class MenuSuperController implements Initializable {
     @FXML
     private Button itens;
     @FXML
-    private Button  cadastrar;
+    private Button  cadastrarLivro;
     @FXML
-    private Label alerta;
+    private Button  cadastrarCd;
+    @FXML
+    private Button  cadastrarRevista;
     @FXML
     private Button button_sair;
     @Override
@@ -30,7 +31,7 @@ public class MenuSuperController implements Initializable {
         usuarios.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DBUtils.changeScene(actionEvent, "listar-usuario.fxml", "Usuários"); //todo: falta
+                DBUtils.changeScene(actionEvent, "listar-usuarios.fxml", "Usuários");
             }
         });
 
@@ -41,17 +42,32 @@ public class MenuSuperController implements Initializable {
             }
         });
 
-        cadastrar.setOnAction(new EventHandler<ActionEvent>() {
+        cadastrarLivro.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DBUtils.changeScene(actionEvent, "cadastrar-item.fxml", "Cadastrar Item"); //todo: falta
+                DBUtils.changeScene(actionEvent, "cadastrar-livro.fxml", "Cadastrar Item");
             }
+        });
+
+        cadastrarCd.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DBUtils.changeScene(actionEvent, "cadastrar-cd.fxml", "Cadastrar Item");
+            }
+        });
+
+        cadastrarRevista.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                DBUtils.changeScene(actionEvent, "cadastrar-revista.fxml", "Cadastrar Item");
         });
 
         button_sair.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                DBUtils.changeScene(actionEvent, "menu-super.fxml", "MENU | ADM");
+                DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
+                displayBiblioteca.deslogarGUI();
+                DBUtils.changeScene(actionEvent, "tela-inicial.fxml", "Tela Inicial");
             }
         });
 

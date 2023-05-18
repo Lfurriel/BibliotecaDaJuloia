@@ -33,4 +33,9 @@ public class AcessorTecnico extends Usuario {
 
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Acessor técnico";
+    }
 }

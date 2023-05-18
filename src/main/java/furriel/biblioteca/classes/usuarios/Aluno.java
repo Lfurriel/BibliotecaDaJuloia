@@ -45,4 +45,9 @@ public class Aluno extends Usuario {
 
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Aluno";
+    }
 }

@@ -11,4 +11,9 @@ public class Administrador extends Usuario{
     public double verificaMulta(Emprestimo emprestimo) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Administrador";
+    }
 }
