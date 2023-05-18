@@ -60,6 +60,7 @@ public class MenuSuperController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "cadastrar-revista.fxml", "Cadastrar Item");
+            }
         });
 
         button_sair.setOnAction(new EventHandler<ActionEvent>() {
