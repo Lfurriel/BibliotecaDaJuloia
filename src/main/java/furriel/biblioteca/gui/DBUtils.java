@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -48,6 +49,7 @@ public class DBUtils {
         }
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.getIcons().add(new Image("https://img.freepik.com/vetores-premium/desenho-para-colorir-desenho-de-gato-lendo-livro-de-desenho-de-personagens_51194-266.jpg?w=2000"));
         stage.setTitle(title);
         stage.setScene(new Scene(root, 600, 400));
         stage.show();
