@@ -4,6 +4,15 @@ public class Livro extends Item{
     private String editora;
     private String isbn;
 
+    /**
+     * Método Construtor
+     * @param titulo Título do Livro
+     * @param autor Autor do Livro
+     * @param anoDePublicacao Ano de Publicação do Livro
+     * @param quantidadeDisponivel Quantidade de Livros disponíveis
+     * @param editora Editora do Livro
+     * @param isbn ISBN do Livro
+     */
     public Livro(String titulo, String autor, int anoDePublicacao, int quantidadeDisponivel,
                  String editora, String isbn) {
         super(titulo, autor, anoDePublicacao, quantidadeDisponivel);
@@ -27,6 +36,9 @@ public class Livro extends Item{
         this.isbn = isbn;
     }
 
+    /**
+     * @return Nome da Classe
+     */
     @Override
     public String toString() {
         return "Livro";

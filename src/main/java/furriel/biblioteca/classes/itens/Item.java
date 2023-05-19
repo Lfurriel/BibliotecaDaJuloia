@@ -4,6 +4,9 @@ import furriel.biblioteca.exceptions.IndisponivelException;
 import furriel.biblioteca.exceptions.NaoEmprestadoException;
 import furriel.biblioteca.interfaces.Emprestavel;
 
+/**
+ * Classe abstrata de Item
+ */
 public abstract class Item implements Emprestavel {
     private String titulo;
     private String autor;
@@ -13,6 +16,13 @@ public abstract class Item implements Emprestavel {
     private final int id;
     private static int generator = 0;
 
+    /**
+     * Método Construtor
+     * @param titulo Título do item
+     * @param autor Autor do item
+     * @param anoDePublicacao Ano de Publicação do itens
+     * @param quantidadeDisponivel Quantidade de itens disponíveis
+     */
     public Item(String titulo, String autor, int anoDePublicacao,
                 int quantidadeDisponivel) {
         this.id = ++generator;
@@ -47,26 +57,15 @@ public abstract class Item implements Emprestavel {
         return anoDePublicacao;
     }
 
-    public void setAnoDePublicacao(int anoDePublicacao) {
-        this.anoDePublicacao = anoDePublicacao;
-    }
-
     public int getQuantidadeDisponivel() {
         return quantidadeDisponivel;
     }
 
-    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
-        this.quantidadeDisponivel = quantidadeDisponivel;
-    }
-
-    public int getQuantidadeEmprestada() {
-        return quantidadeEmprestada;
-    }
-
-    public void setQuantidadeEmprestada(int quantidadeEmprestada) {
-        this.quantidadeEmprestada = quantidadeEmprestada;
-    }
-
+    /**
+     * Implementação da interface Emprestável -> Valida se o item pode ser emprestado, caso positivo, diminui a quantidade
+     * de itens disponivel e soma a quantidade de itens emprestado
+     * @throws IndisponivelException Exceção caso o item esteja indisponível
+     */
     @Override
     public void emprestarItem() throws IndisponivelException {
 
@@ -76,6 +75,11 @@ public abstract class Item implements Emprestavel {
         this.quantidadeEmprestada++;
     }
 
+    /**
+     * Implementação da interface Emprestável -> Valida se o item foi sim emprestado, caso positivo, diminui a quantidade
+     * de emprestimos e soma a quantidade de itens dispiniveis
+     * @throws NaoEmprestadoException Exceção caso o item não foi emprestado
+     */
     @Override
     public void devolverItem() throws NaoEmprestadoException {
 

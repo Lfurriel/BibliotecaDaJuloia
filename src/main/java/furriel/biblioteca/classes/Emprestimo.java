@@ -4,6 +4,9 @@ import furriel.biblioteca.classes.itens.Item;
 
 import java.util.Date;
 
+/**
+ * Classe de emprestimo
+ */
 public class Emprestimo {
     private Item item;
     private Date dataEmprestimo;
@@ -11,6 +14,12 @@ public class Emprestimo {
     private Date devolucaoReal;
     private boolean devolvido;
 
+    /**
+     * Método construntor
+     * @param item Objeto Item do empréstimo
+     * @param dataEmprestimo Data de empréstimo
+     * @param devolucaoPrevista Data prevista da devolução (30 dias a mais da data de empréstimo)
+     */
     public Emprestimo(Item item, Date dataEmprestimo, Date devolucaoPrevista) {
         this.item = item;
         this.dataEmprestimo = dataEmprestimo;
@@ -28,10 +37,6 @@ public class Emprestimo {
 
     public Date getDataEmprestimo() {
         return dataEmprestimo;
-    }
-
-    public void setDataEmprestimo(Date dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
     }
 
     public Date getDevolucaoPrevista() {

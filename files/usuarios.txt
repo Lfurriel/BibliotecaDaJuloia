@@ -1,3 +1,4 @@
-Aluno#Furri Cringe#221043918#123#1#Computacao#Integral
-Professor#Lucas Ribas#221041111#456#POO#departamento#titulacao
-Acessor Tecnico#Alecringe#221042222#789#LinguagemC#secao
+Aluno#Furri Cringe#221043918#467.035.780-87#1#Computacao#Integral
+Professor#Lucas Ribas#221041111#104.820.720-08#POO##titulacao
+Acessor Tecnico#Acessor#221042222#132.243.580-41#Acessoria#DCCE
+Administrador#Bibliotecario#221043333#628.997.960-46#Senha

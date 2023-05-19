@@ -1,0 +1,461 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AcessorTecnico {
+  + AcessorTecnico(String, String, String, String, String): 
+  - secao: String
+  + verificaMulta(Emprestimo): double
+  + getSecao(): String
+  + toString(): String
+}
+class Administrador {
+  + Administrador(String, String, String, String): 
+  + verificaMulta(Emprestimo): double
+  + toString(): String
+}
+class Aluno {
+  + Aluno(String, String, String, String, String, String): 
+  - curso: String
+  - periodo: String
+  + verificaMulta(Emprestimo): double
+  + getPeriodo(): String
+  + getCurso(): String
+  + toString(): String
+}
+class Biblioteca {
+  + Biblioteca(String, String): 
+  - nome: String
+  - itens: List<Item>
+  - chaveSecreta: String
+  - cnpj: String
+  - contaLogada: Usuario
+  - usuarios: List<Usuario>
+  + addUsuario(Usuario): void
+  + getUsuarios(): List<Usuario>
+  + getItens(): List<Item>
+  + addItem(Item): void
+  + deslogar(): void
+  + logarGUI(String, String): void
+  + buscaEmprestimoGUI(String): Emprestimo
+  + addAdm(Administrador, String): void
+  + adicionarEmprestimoGUI(Item, String, String, String): void
+  + pagarMultaGUI(String): void
+  + buscarItemGUI(String): Item
+  + getNome(): String
+  + getContaLogada(): Usuario
+  + setContaLogada(Usuario): void
+  + devolverGUI(Emprestimo, String, String, String): void
+}
+class BuscaItemController {
+  + BuscaItemController(): 
+  - input: TextField
+  - ano: Label
+  - classe: Label
+  - titulo: Label
+  - disponibilidade: Label
+  - procurar: Button
+  - sair: Button
+  - id: Label
+  - alerta: Label
+  - autor: Label
+  + initialize(URL, ResourceBundle): void
+  - inicia(): void
+  - setAlerta(String): void
+  - setItem(Item): void
+}
+class CD {
+  + CD(String, String, int, int, int, String): 
+  - volume: int
+  - gravadora: String
+  + getVolume(): int
+  + getGravadora(): String
+  + toString(): String
+}
+class CadastrarCdController {
+  + CadastrarCdController(): 
+  - autor: TextField
+  - titulo: TextField
+  - alerta: Label
+  - anoPublicacao: TextField
+  - gravadora: TextField
+  - button_cadastrar: Button
+  - quantidade: TextField
+  - volume: TextField
+  + initialize(URL, ResourceBundle): void
+}
+class CadastrarLivroController {
+  + CadastrarLivroController(): 
+  - quantidade: TextField
+  - editora: TextField
+  - button_cadastrar: Button
+  - isbn: TextField
+  - autor: TextField
+  - anoPublicacao: TextField
+  - alerta: Label
+  - titulo: TextField
+  + initialize(URL, ResourceBundle): void
+}
+class CadastrarRevistaController {
+  + CadastrarRevistaController(): 
+  - quantidade: TextField
+  - titulo: TextField
+  - numero: TextField
+  - button_cadastrar: Button
+  - anoPublicacao: TextField
+  - alerta: Label
+  - autor: TextField
+  - volume: TextField
+  + initialize(URL, ResourceBundle): void
+}
+class DBUtils {
+  + DBUtils(): 
+  - displayBiblioteca: DisplayBiblioteca
+  + getDisplayBiblioteca(): DisplayBiblioteca
+  + changeScene(ActionEvent, String, String): void
+}
+class DevolverItemController {
+  + DevolverItemController(): 
+  - dia: TextField
+  - input: TextField
+  - procurar: Button
+  - mes: TextField
+  - titulo: Label
+  - autor: Label
+  - alerta: Label
+  - devolver: Button
+  - ano: Label
+  - tf_ano: TextField
+  - classe: Label
+  - id: Label
+  - sair: Button
+  + initialize(URL, ResourceBundle): void
+  - setAlerta(String): void
+  - inicia(): void
+  - setItem(Item): void
+}
+class DisplayBiblioteca {
+  + DisplayBiblioteca(): 
+  - minhaBiblioteca: Biblioteca
+  + login(ActionEvent, String, String): void
+  + deslogarGUI(): void
+  + getMinhaBiblioteca(): Biblioteca
+  - criaNovoItem(String[]): Item
+  - criaNovoUsuario(String[]): Usuario
+}
+interface Emprestavel << interface >> {
+  + devolverItem(): void
+  + emprestarItem(): void
+}
+class Emprestimo {
+  + Emprestimo(Item, Date, Date): 
+  - devolvido: boolean
+  - dataEmprestimo: Date
+  - item: Item
+  - devolucaoReal: Date
+  - devolucaoPrevista: Date
+  + getDevolucaoReal(): Date
+  + setItem(Item): void
+  + getDataEmprestimo(): Date
+  + setDevolvido(boolean): void
+  + setDevolucaoReal(Date): void
+  + isDevolvido(): boolean
+  + getItem(): Item
+  + getDevolucaoPrevista(): Date
+  + setDevolucaoPrevista(Date): void
+}
+class HelloApplication {
+  + HelloApplication(): 
+  + main(String[]): void
+  + start(Stage): void
+}
+class HistoricoController {
+  + HistoricoController(): 
+  - proximo: Button
+  - sair: Button
+  - index: int
+  - autor: Label
+  - id: Label
+  - dataDevolucao: Label
+  - dataEmprestimo: Label
+  - classe: Label
+  - titulo: Label
+  + initialize(URL, ResourceBundle): void
+  - iniciar(Usuario): void
+  - setEmprestimo(Emprestimo): void
+}
+class IndisponivelException {
+  + IndisponivelException(String): 
+}
+class InformacaoInvalidaException {
+  + InformacaoInvalidaException(String): 
+}
+class Item {
+  + Item(String, String, int, int): 
+  - quantidadeEmprestada: int
+  - quantidadeDisponivel: int
+  - anoDePublicacao: int
+  - titulo: String
+  - autor: String
+  - generator: int
+  - id: int
+  + getAutor(): String
+  + getAnoDePublicacao(): int
+  + getTitulo(): String
+  + getId(): int
+  + emprestarItem(): void
+  + getQuantidadeDisponivel(): int
+  + devolverItem(): void
+  + setTitulo(String): void
+  + setAutor(String): void
+}
+class ListarEmprestimosController {
+  + ListarEmprestimosController(): 
+  - titulo: Label
+  - sair: Button
+  - id: Label
+  - autor: Label
+  - dataPrevisao: Label
+  - classe: Label
+  - index: int
+  - dataEmprestimo: Label
+  - proximo: Button
+  + initialize(URL, ResourceBundle): void
+  - iniciar(Usuario): void
+  - setEmprestimo(Emprestimo): void
+}
+class ListarUsuariosController {
+  + ListarUsuariosController(): 
+  - proximo: Button
+  - index: int
+  - extra1: Label
+  - sair: Button
+  - matricula: Label
+  - nome: Label
+  - cpf: Label
+  - extra2: Label
+  - tipo: Label
+  + initialize(URL, ResourceBundle): void
+  - setItem(Usuario): void
+}
+class Livro {
+  + Livro(String, String, int, int, String, String): 
+  - isbn: String
+  - editora: String
+  + setEditora(String): void
+  + toString(): String
+  + setIsbn(String): void
+  + getIsbn(): String
+  + getEditora(): String
+}
+class MenuSuperController {
+  + MenuSuperController(): 
+  - usuarios: Button
+  - itens: Button
+  - cadastrarCd: Button
+  - button_sair: Button
+  - cadastrarLivro: Button
+  - cadastrarRevista: Button
+  + initialize(URL, ResourceBundle): void
+}
+class MenuUsuarioController {
+  + MenuUsuarioController(): 
+  - button_op2: Button
+  - button_op4: Button
+  - button_op1: Button
+  - button_op6: Button
+  - button_sair: Button
+  - button_op5: Button
+  - button_op3: Button
+  - alerta: Label
+  - button_op7: Button
+  - button_op8: Button
+  + initialize(URL, ResourceBundle): void
+  - estenderEmrprestimos(Biblioteca): void
+}
+class MostraItemController {
+  + MostraItemController(): 
+  - extra2: Label
+  - id: Label
+  - extra1: Label
+  - index: int
+  - ano: Label
+  - sair: Button
+  - classe: Label
+  - proximo: Button
+  - titulo: Label
+  - autor: Label
+  + initialize(URL, ResourceBundle): void
+  - setItem(Item): void
+}
+class NaoEmprestadoException {
+  + NaoEmprestadoException(String): 
+}
+class OpSignUpController {
+  + OpSignUpController(): 
+  - acessor: Button
+  - button_entrar: Button
+  - administrador: Button
+  - aluno: Button
+  - professor: Button
+  + initialize(URL, ResourceBundle): void
+}
+class PagarMultaController {
+  + PagarMultaController(): 
+  - senha: PasswordField
+  - alerta: Label
+  - ok: Button
+  - sair: Button
+  - valor: Label
+  + initialize(URL, ResourceBundle): void
+}
+class PegarEmprestimoController {
+  + PegarEmprestimoController(): 
+  - mes: TextField
+  - alerta: Label
+  - sair: Button
+  - dia: TextField
+  - input: TextField
+  - ok: Button
+  - ano: TextField
+  + initialize(URL, ResourceBundle): void
+}
+class Professor {
+  + Professor(String, String, String, String, String, String): 
+  - departamento: String
+  - titulacao: String
+  + verificaMulta(Emprestimo): double
+  + toString(): String
+  + getDepartamento(): String
+  + getTitulacao(): String
+}
+class Revista {
+  + Revista(String, String, int, int, int, int): 
+  - volume: int
+  - numero: int
+  + toString(): String
+  + setVolume(int): void
+  + setNumero(int): void
+  + getVolume(): int
+  + getNumero(): int
+}
+class SignUpAcessorController {
+  + SignUpAcessorController(): 
+  - tf_nome: TextField
+  - tf_secao: TextField
+  - tf_matricula: TextField
+  - tf_cpf: TextField
+  - tf_senha: PasswordField
+  - button_cadastrar: Button
+  + initialize(URL, ResourceBundle): void
+}
+class SignUpAdministradorController {
+  + SignUpAdministradorController(): 
+  - chave: TextField
+  - tf_matricula: TextField
+  - tf_nome: TextField
+  - tf_cpf: TextField
+  - button_cadastrar: Button
+  - alerta: Label
+  - tf_senha: PasswordField
+  + initialize(URL, ResourceBundle): void
+}
+class SignUpAlunoController {
+  + SignUpAlunoController(): 
+  - button_cadastrar: Button
+  - tf_nome: TextField
+  - tf_matricula: TextField
+  - tf_senha: PasswordField
+  - tf_periodo: TextField
+  - tf_cpf: TextField
+  - tf_curso: TextField
+  + initialize(URL, ResourceBundle): void
+}
+class SignUpProfessorController {
+  + SignUpProfessorController(): 
+  - tf_matricula: TextField
+  - tf_nome: TextField
+  - tf_cpf: TextField
+  - tf_titulacao: TextField
+  - tf_senha: PasswordField
+  - tf_departamento: TextField
+  - button_cadastrar: Button
+  + initialize(URL, ResourceBundle): void
+}
+class TelaInicialController {
+  + TelaInicialController(): 
+  - tf_cpf: TextField
+  - button_login: Button
+  - erro: Label
+  - tf_senha: PasswordField
+  - button_cadastrar: Button
+  + initialize(URL, ResourceBundle): void
+}
+class Usuario {
+  + Usuario(String, String, String, String): 
+  - cpf: String
+  - senha: String
+  - emprestimos: List<Emprestimo>
+  - multa: double
+  - nome: String
+  - matricula: String
+  + setMulta(double): void
+  + getNome(): String
+  + setNome(String): void
+  + getCpf(): String
+  + setCpf(String): void
+  + verificaMulta(Emprestimo): double
+  + validarSenha(String): void
+  + adicionarEmprestimo(Item, Date): void
+  + setSenha(String): void
+  + getMulta(): double
+  + getMatricula(): String
+  + getEmprestimos(): List<Emprestimo>
+}
+class Utils {
+  + Utils(): 
+  + calculaDiferencaDias(Date, Date): long
+  + calcularDiaDepoisDeUmMes(Date): Date
+  + verificaNumero(String): boolean
+  + converteData(Date): String
+}
+
+AcessorTecnico                 -[#000082,plain]-^  Usuario                       
+Administrador                  -[#000082,plain]-^  Usuario                       
+Aluno                          -[#000082,plain]-^  Usuario                       
+Biblioteca                     -[#595959,dashed]->  InformacaoInvalidaException   : "«create»"
+Biblioteca                    "1" *-[#595959,plain]-> "itens\n*" Item                          
+Biblioteca                     -[#595959,dashed]->  NaoEmprestadoException        : "«create»"
+Biblioteca                    "1" *-[#595959,plain]-> "usuarios\n*" Usuario                       
+CD                             -[#000082,plain]-^  Item                          
+CadastrarCdController          -[#595959,dashed]->  CD                            : "«create»"
+CadastrarLivroController       -[#595959,dashed]->  Livro                         : "«create»"
+CadastrarRevistaController     -[#595959,dashed]->  Revista                       : "«create»"
+DBUtils                        -[#595959,dashed]->  DisplayBiblioteca             : "«create»"
+DBUtils                       "1" *-[#595959,plain]-> "displayBiblioteca\n1" DisplayBiblioteca             
+DisplayBiblioteca              -[#595959,dashed]->  AcessorTecnico                : "«create»"
+DisplayBiblioteca              -[#595959,dashed]->  Administrador                 : "«create»"
+DisplayBiblioteca              -[#595959,dashed]->  Aluno                         : "«create»"
+DisplayBiblioteca             "1" *-[#595959,plain]-> "minhaBiblioteca\n1" Biblioteca                    
+DisplayBiblioteca              -[#595959,dashed]->  Biblioteca                    : "«create»"
+DisplayBiblioteca              -[#595959,dashed]->  CD                            : "«create»"
+DisplayBiblioteca              -[#595959,dashed]->  Livro                         : "«create»"
+DisplayBiblioteca              -[#595959,dashed]->  Professor                     : "«create»"
+DisplayBiblioteca              -[#595959,dashed]->  Revista                       : "«create»"
+Emprestimo                    "1" *-[#595959,plain]-> "item\n1" Item                          
+Item                           -[#008200,dashed]-^  Emprestavel                   
+Item                           -[#595959,dashed]->  IndisponivelException         : "«create»"
+Item                           -[#595959,dashed]->  NaoEmprestadoException        : "«create»"
+Livro                          -[#000082,plain]-^  Item                          
+Professor                      -[#000082,plain]-^  Usuario                       
+Revista                        -[#000082,plain]-^  Item                          
+SignUpAcessorController        -[#595959,dashed]->  AcessorTecnico                : "«create»"
+SignUpAdministradorController  -[#595959,dashed]->  Administrador                 : "«create»"
+SignUpAlunoController          -[#595959,dashed]->  Aluno                         : "«create»"
+SignUpProfessorController      -[#595959,dashed]->  Professor                     : "«create»"
+Usuario                        -[#595959,dashed]->  Emprestimo                    : "«create»"
+Usuario                       "1" *-[#595959,plain]-> "emprestimos\n*" Emprestimo                    
+Usuario                        -[#595959,dashed]->  InformacaoInvalidaException   : "«create»"
+@enduml

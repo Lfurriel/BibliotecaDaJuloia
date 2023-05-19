@@ -4,10 +4,7 @@ import furriel.biblioteca.classes.itens.CD;
 import furriel.biblioteca.classes.itens.Item;
 import furriel.biblioteca.classes.itens.Livro;
 import furriel.biblioteca.classes.itens.Revista;
-import furriel.biblioteca.classes.usuarios.AcessorTecnico;
-import furriel.biblioteca.classes.usuarios.Aluno;
-import furriel.biblioteca.classes.usuarios.Professor;
-import furriel.biblioteca.classes.usuarios.Usuario;
+import furriel.biblioteca.classes.usuarios.*;
 import furriel.biblioteca.exceptions.InformacaoInvalidaException;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
@@ -20,10 +17,11 @@ public class DisplayBiblioteca {
 
     private Biblioteca minhaBiblioteca;
 
-    public DisplayBiblioteca(Biblioteca minhaBiblioteca) {
-        this.minhaBiblioteca = minhaBiblioteca;
-    }
-
+    /**
+     * Método construtor -> Faz a leitura de arquivos para criar o objeto de biblioteca e adicionar itens e usuários
+     * @throws FileNotFoundException Erro caso não leia o arquivo
+     * @throws InformacaoInvalidaException Erro
+     */
     public DisplayBiblioteca() throws FileNotFoundException, InformacaoInvalidaException {
         Biblioteca biblioteca = new Biblioteca("Biblioteca da Juloia", "56.665.209/0001-29");
         File arquivo = new File("files\\itens.txt ");
@@ -59,6 +57,11 @@ public class DisplayBiblioteca {
         this.minhaBiblioteca = biblioteca;
     }
 
+    /**
+     * Cria um novo item
+     * @param campos Linha do arquivo splitada
+     * @return Objeto criado
+     */
     private Item criaNovoItem(String[] campos) {
         if(campos[0].equals("Revista")) {
             //Revista # Case six or available. # Sheri Delacruz # 1904 # 42 #8 # 3
@@ -92,31 +95,42 @@ public class DisplayBiblioteca {
         }
     }
 
+    /**
+     * Cria novo usuário
+     * @param campos Linha do arquivo splitada
+     * @return Objeto criado
+     */
     private Usuario criaNovoUsuario(String[] campos) {
-        if(campos[0].equals("Aluno")) {
-            return new Aluno(campos[1], campos[2], campos[3], campos[4], campos[5], campos[6]);
-        } else if (campos[0].equals("Professor")) {
-            return new Professor(campos[1], campos[2], campos[3], campos[4], campos[5], campos[6]);
-        } else {
-            return new AcessorTecnico(campos[1], campos[2], campos[3], campos[4], campos[5]);
-        }
+        return switch (campos[0]) {
+            case "Aluno" -> new Aluno(campos[1], campos[2], campos[3], campos[4], campos[5], campos[6]);
+            case "Professor" -> new Professor(campos[1], campos[2], campos[3], campos[4], campos[5], campos[6]);
+            case "Acessor" -> new AcessorTecnico(campos[1], campos[2], campos[3], campos[4], campos[5]);
+            default -> new Administrador(campos[1], campos[2], campos[3], campos[4]);
+        };
     }
 
     public Biblioteca getMinhaBiblioteca() {
         return minhaBiblioteca;
     }
 
-    //METÓDOS PRA GUI
+    /**
+     * Login do usuário
+     * @param event Botão clicado
+     * @param cpf CPF do usuário
+     * @param senha Senha do usuário
+     * @throws InformacaoInvalidaException Erro caso usuário não tenha sido encontrado ou senha inserida seja inválida
+     */
     public void login(ActionEvent event, String cpf, String senha) throws InformacaoInvalidaException {
         minhaBiblioteca.logarGUI(cpf, senha);
-
-        telaUsuarioGUI(event);
+        if(minhaBiblioteca.getContaLogada() instanceof Administrador)
+            DBUtils.changeScene(event, "menu-super.fxml", "MENU | ADM");
+        else
+            DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
     }
 
-    private void telaUsuarioGUI(ActionEvent event) {
-        DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
-    }
-
+    /**
+     * Desloga o usuário
+     */
     public void deslogarGUI() {
         minhaBiblioteca.deslogar();
     }

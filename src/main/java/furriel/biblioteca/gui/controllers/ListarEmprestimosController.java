@@ -16,6 +16,9 @@ import furriel.biblioteca.utils.Utils;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de listar-emprestimos.fxml
+ */
 public class ListarEmprestimosController implements Initializable {
 
     @FXML
@@ -52,6 +55,10 @@ public class ListarEmprestimosController implements Initializable {
         Usuario contaLogada = biblioteca.getContaLogada();
         iniciar(contaLogada);
         proximo.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão próximo -> Avança, se possível, na lista de empréstimos e mostra na tela
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 index ++;
@@ -68,6 +75,10 @@ public class ListarEmprestimosController implements Initializable {
         });
 
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão sair -> volta para a tela inicial
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
@@ -75,6 +86,10 @@ public class ListarEmprestimosController implements Initializable {
         });
     }
 
+    /**
+     * Busca na lista de histórico o primeiro que já não devolvido
+     * @param contaLogada Conta logada em biblioteca
+     */
     private void iniciar(Usuario contaLogada) {
         index = 0;
         while (index < contaLogada.getEmprestimos().size() && contaLogada.getEmprestimos().get(index).isDevolvido()) {
@@ -84,6 +99,10 @@ public class ListarEmprestimosController implements Initializable {
             setEmprestimo(contaLogada.getEmprestimos().get(index));
     }
 
+    /**
+     * Mostra na tela um objeto emprestimo
+     * @param emprestimo Emprestimo a ser exibido
+     */
     private void setEmprestimo(Emprestimo emprestimo) {
 
         Item item = emprestimo.getItem();

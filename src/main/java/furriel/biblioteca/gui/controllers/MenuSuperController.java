@@ -11,6 +11,9 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de menu-super.fxml
+ */
 public class MenuSuperController implements Initializable {
 
     @FXML
@@ -29,6 +32,10 @@ public class MenuSuperController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         usuarios.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão usuarios -> Muda para tela de exibição de usuários
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "listar-usuarios.fxml", "Usuários");
@@ -36,6 +43,10 @@ public class MenuSuperController implements Initializable {
         });
 
         itens.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão itens -> Muda para tela de exibição de itens
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "mostra-itens.fxml", "Itens");
@@ -43,6 +54,10 @@ public class MenuSuperController implements Initializable {
         });
 
         cadastrarLivro.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão cadastrarLivro -> Muda para tela de cadastro de livro
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "cadastrar-livro.fxml", "Cadastrar Item");
@@ -50,6 +65,10 @@ public class MenuSuperController implements Initializable {
         });
 
         cadastrarCd.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão cadastrarCd -> Muda para tela de cadastro de cd
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "cadastrar-cd.fxml", "Cadastrar Item");
@@ -57,6 +76,10 @@ public class MenuSuperController implements Initializable {
         });
 
         cadastrarRevista.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão cadastrarRevista -> Muda para tela de cadastro de revista
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "cadastrar-revista.fxml", "Cadastrar Item");
@@ -64,6 +87,10 @@ public class MenuSuperController implements Initializable {
         });
 
         button_sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_sair -> Desloga o usuário e volta para tela de login
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();

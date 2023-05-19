@@ -1,9 +1,6 @@
 package furriel.biblioteca.gui.controllers;
 
 import furriel.biblioteca.classes.Biblioteca;
-import furriel.biblioteca.classes.itens.CD;
-import furriel.biblioteca.classes.itens.Livro;
-import furriel.biblioteca.classes.itens.Revista;
 import furriel.biblioteca.classes.usuarios.*;
 import furriel.biblioteca.gui.DBUtils;
 import javafx.event.ActionEvent;
@@ -51,6 +48,10 @@ public class ListarUsuariosController implements Initializable {
         if (index < biblioteca.getUsuarios().size())
             setItem(biblioteca.getUsuarios().get(index));
         proximo.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão proximo -> Avança, se possível, na lista de usuários e printa na tela
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 index++;
@@ -60,6 +61,10 @@ public class ListarUsuariosController implements Initializable {
         });
 
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão sair -> volta para a tela inicial
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Usuario contaLogada = biblioteca.getContaLogada();
@@ -71,6 +76,10 @@ public class ListarUsuariosController implements Initializable {
         });
     }
 
+    /**
+     * Mostra na tela um usuário
+     * @param usuario Objeto a ser exibido
+     */
     private void setItem(Usuario usuario) {
         tipo.setText(usuario.toString());
         nome.setText(usuario.getNome());

@@ -17,6 +17,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de sign-up-administrador.fxml
+ */
 public class SignUpAdministradorController implements Initializable {
 
     @FXML
@@ -36,6 +39,11 @@ public class SignUpAdministradorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_cadastrar.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_cadastrar -> Cadastra um novo Administrador, adiciona a lista de usuários, loga o usuário
+             * e ja muda para tela inicial
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (tf_nome.getText().equals("") || tf_matricula.getText().equals("") || tf_cpf.getText().equals("")

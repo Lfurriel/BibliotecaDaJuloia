@@ -19,6 +19,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de menu-usuario.fxml
+ */
 public class MenuUsuarioController implements Initializable {
 
     @FXML
@@ -54,18 +57,30 @@ public class MenuUsuarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_op1.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op1 -> Muda para a tela de listagem de itens
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "mostra-itens.fxml", "Itens");
             }
         });
         button_op2.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op2 -> Muda para a tela de busca de item
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "busca-item.fxml", "Buscar item");
             }
         });
         button_op3.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op3 -> Muda para a tela de pagar multa ou exibe na tela caso conta logada não possua uma multa
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -76,6 +91,10 @@ public class MenuUsuarioController implements Initializable {
             }
         });
         button_op4.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op4 -> Checa a existência de multa, caso não possua, muda para a tela de empréstimo
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Usuario contaLogada = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca().getContaLogada();
@@ -86,12 +105,21 @@ public class MenuUsuarioController implements Initializable {
             }
         });
         button_op5.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op5 -> Muda para a tela de devolução
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "devolver-item.fxml", "Devolução");
             }
         });
         button_op6.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op6 -> Valida a existência de um empréstimo não devolvido, caso possua muda para tela de listagem de empréstimos
+             * pendentes, caso contrário exibe um alerta na tela
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -111,6 +139,11 @@ public class MenuUsuarioController implements Initializable {
             }
         });
         button_op7.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op7 -> Valida a existência de um empréstimo não devolvido, caso possua chama função de estender empréstimo, caso
+             * contrário exibe um alerta na tela
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -132,6 +165,11 @@ public class MenuUsuarioController implements Initializable {
             }
         });
         button_op8.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_op8 -> Valida a existência de um empréstimo devolvido, caso possua muda para tela de listagem de empréstimos
+             * devolvidos, caso contrário exibe um alerta na tela
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -151,6 +189,10 @@ public class MenuUsuarioController implements Initializable {
             }
         });
         button_sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Desloga o usuário e volta para tela de login
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
@@ -160,6 +202,10 @@ public class MenuUsuarioController implements Initializable {
         });
     }
 
+    /**
+     * Passa pela lista de emprestimos do usuário logado adicionando um mês em cada data de devolução prevista
+     * @param biblioteca Objeto da biblioteca
+     */
     private void estenderEmrprestimos(Biblioteca biblioteca) {
         Usuario contaLogada = biblioteca.getContaLogada();
         for (Emprestimo e : contaLogada.getEmprestimos()) {

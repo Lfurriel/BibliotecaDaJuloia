@@ -15,6 +15,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de tela-inicial.fxml
+ */
 public class TelaInicialController implements Initializable {
 
     @FXML
@@ -35,6 +38,11 @@ public class TelaInicialController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_login.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_login -> Tenta logar o usuário na biblioteca e se obtiver sucesso muda para
+             * a tela de menu usuário ou menu de administrador
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DisplayBiblioteca displayBiblioteca = DBUtils.getDisplayBiblioteca();
@@ -52,6 +60,10 @@ public class TelaInicialController implements Initializable {
         });
 
         button_cadastrar.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar button_cadastrar -> Muda para a tela de opção de cadastro
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "op-sign-up.fxml", "Cadastro");

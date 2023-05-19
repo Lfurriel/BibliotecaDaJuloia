@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de op-sign-up.fxml
+ */
 public class OpSignUpController implements Initializable {
 
     @FXML
@@ -25,6 +28,10 @@ public class OpSignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         aluno.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão aluno -> Muda para a tela de cadastro de aluno
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "sign-up-aluno.fxml", "Cadastrar | Aluno");
@@ -32,6 +39,10 @@ public class OpSignUpController implements Initializable {
         });
 
         professor.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão professor -> Muda para a tela de cadastro de professor
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "sign-up-professor.fxml", "Cadastrar | Professor");
@@ -39,6 +50,10 @@ public class OpSignUpController implements Initializable {
         });
 
         acessor.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão acessor -> Muda para a tela de cadastro de acessor
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "sign-up-acessor.fxml", "Cadastrar | Acessor");
@@ -46,6 +61,10 @@ public class OpSignUpController implements Initializable {
         });
 
         administrador.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão administrador -> Muda para a tela de cadastro de administrador
+             * @param actionEvent Botão pressionado
+             */
             @Override
             public void handle(ActionEvent actionEvent) {
                 DBUtils.changeScene(actionEvent, "sign-up-administrador.fxml", "Cadastrar | ADM");
@@ -53,6 +72,10 @@ public class OpSignUpController implements Initializable {
         });
 
         button_entrar.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o button_entrar -> Muda para a tela de login
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "tela-inicial.fxml", "Tela Inicial");

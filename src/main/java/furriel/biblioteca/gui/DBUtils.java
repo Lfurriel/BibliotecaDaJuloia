@@ -28,6 +28,9 @@ public class DBUtils {
     }
 
 
+    /**
+     * Cria um display Biblioteca
+     */
     static {
         try {
             displayBiblioteca = new DisplayBiblioteca();
@@ -36,6 +39,12 @@ public class DBUtils {
         }
     }
 
+    /**
+     * Método de mudança de cena
+     * @param event Botão pressionado
+     * @param fxmlFile - Nome do arquivo fxml
+     * @param title - Titulo da cena
+     */
     public static void changeScene(ActionEvent event, String fxmlFile, String title) {
 
         Parent root = null;

@@ -18,6 +18,9 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de mostra-itens.fxml
+ */
 public class MostraItemController implements Initializable {
 
     @FXML
@@ -50,6 +53,9 @@ public class MostraItemController implements Initializable {
     private static int index;
 
 
+    /**
+     * Exibe na tela o primeiro item da biblioteca
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -57,6 +63,10 @@ public class MostraItemController implements Initializable {
         if(index < biblioteca.getItens().size())
             setItem(biblioteca.getItens().get(index));
         proximo.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar proximo -> Avança e, se possível, mostra o item na tela
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 index++;
@@ -66,6 +76,11 @@ public class MostraItemController implements Initializable {
         });
 
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar botão sair -> Muda para a tela inicial validando se conta logada é um
+             * administrador ou usuário comum
+             * @param event
+             */
             @Override
             public void handle(ActionEvent event) {
                 Usuario contaLogada = biblioteca.getContaLogada();
@@ -77,6 +92,10 @@ public class MostraItemController implements Initializable {
         });
     }
 
+    /**
+     * Exibe um item na tela
+     * @param item Objeto a ser exibido
+     */
     private void setItem(Item item) {
         classe.setText(item.toString());
         id.setText(String.valueOf(item.getId()));

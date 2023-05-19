@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de cadastrar-revista.fxml
+ */
 public class CadastrarRevistaController implements Initializable {
 
     @FXML
@@ -42,6 +45,11 @@ public class CadastrarRevistaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         button_cadastrar.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão cadastrar -> Cria com os parâmetros preenchidos uma nova Revista e adicona a lista de itens
+             * da biblioteca
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();

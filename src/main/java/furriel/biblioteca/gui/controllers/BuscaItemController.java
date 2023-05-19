@@ -14,6 +14,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de busca-item.fxml
+ */
 public class BuscaItemController implements Initializable {
 
     @FXML
@@ -44,10 +47,26 @@ public class BuscaItemController implements Initializable {
 
     @FXML
     private Button sair;
+
+    /**
+     * Limpa a tela setando todas as labels para string vazia ("") e espera o pressionar dos botões
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        inicia();
+
+        alerta.setText("");
+        classe.setText("");
+        id.setText("");
+        ano.setText("");
+        autor.setText("");
+        disponibilidade.setText("");
+        titulo.setText("");
+
         procurar.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * AO apertar o botão procurar -> Busca na biblioteca o item com o input preenchido
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -63,7 +82,12 @@ public class BuscaItemController implements Initializable {
             }
         });
 
+
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * AO apertar o botão sair -> Volta para a tela de usuário
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
@@ -71,16 +95,12 @@ public class BuscaItemController implements Initializable {
         });
     }
 
-    private void inicia() {
-        alerta.setText("");
-        classe.setText("");
-        id.setText("");
-        ano.setText("");
-        autor.setText("");
-        disponibilidade.setText("");
-        titulo.setText("");
-    }
 
+
+    /**
+     * Printa um item na tela
+     * @param item Item a ser mostrado
+     */
     private void setItem(Item item) {
         alerta.setText("");
         classe.setText(item.toString());
@@ -94,6 +114,10 @@ public class BuscaItemController implements Initializable {
         titulo.setText(item.getTitulo());
     }
 
+    /**
+     * Printa uma mensagem na tela
+     * @param msg mensagem de erro
+     */
     private void setAlerta(String msg) {
         alerta.setText(msg);
         classe.setText("");

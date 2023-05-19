@@ -38,10 +38,6 @@ public abstract class Usuario {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
     public String getCpf() {
         return cpf;
     }
@@ -56,10 +52,6 @@ public abstract class Usuario {
 
     public List<Emprestimo> getEmprestimos() {
         return emprestimos;
-    }
-
-    public void setEmprestimos(List<Emprestimo> emprestimos) {
-        this.emprestimos = emprestimos;
     }
 
     public double getMulta() {

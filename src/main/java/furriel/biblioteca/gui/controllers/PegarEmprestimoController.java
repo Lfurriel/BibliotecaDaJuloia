@@ -16,6 +16,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de pegar-emprestimo.fxml
+ */
 public class PegarEmprestimoController implements Initializable {
 
     @FXML
@@ -36,6 +39,11 @@ public class PegarEmprestimoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ok.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão ok -> Busca um item na lista de itens da biblioteca e adiciona um novo
+             * empréstimo a lista de emprestimos do usuário logado
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -63,6 +71,10 @@ public class PegarEmprestimoController implements Initializable {
         });
 
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar botão sair -> volta para a tela de usuário
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");

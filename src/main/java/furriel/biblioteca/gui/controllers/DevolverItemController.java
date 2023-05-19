@@ -18,6 +18,9 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de devolver-item.fxml
+ */
 public class DevolverItemController implements Initializable {
 
     @FXML
@@ -48,8 +51,20 @@ public class DevolverItemController implements Initializable {
     private TextField tf_ano;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        inicia();
+
+        alerta.setText("");
+        classe.setText("");
+        id.setText("");
+        ano.setText("");
+        autor.setText("");
+        titulo.setText("");
+
         procurar.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão procurar -> Procura na lista de Emprestimos um da lista do usuário logado e printa
+             * na tela caso encontrado
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -67,6 +82,11 @@ public class DevolverItemController implements Initializable {
         });
 
         devolver.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão devolver -> Procura na lista de Emprestimos um da lista do usuário logado e
+             * printa na tela caso encontrado e devolve o item
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -89,6 +109,10 @@ public class DevolverItemController implements Initializable {
         });
 
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão sair -> volta para a tela inicial
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
@@ -96,15 +120,10 @@ public class DevolverItemController implements Initializable {
         });
     }
 
-    private void inicia() {
-        alerta.setText("");
-        classe.setText("");
-        id.setText("");
-        ano.setText("");
-        autor.setText("");
-        titulo.setText("");
-    }
-
+    /**
+     * Mostra o item na tela
+     * @param item Iem a ser exibido
+     */
     private void setItem(Item item) {
         alerta.setText("");
         classe.setText(item.toString());
@@ -114,6 +133,10 @@ public class DevolverItemController implements Initializable {
         titulo.setText(item.getTitulo());
     }
 
+    /**
+     * Mostra uma mensagem na tela
+     * @param msg mensagem de erro
+     */
     private void setAlerta(String msg) {
         alerta.setText(msg);
         classe.setText("");

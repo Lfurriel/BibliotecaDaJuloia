@@ -8,6 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Classe principal do projeto -> Starta a cena inicial do JavaFX
+ *
+ * @author Lucas Furriel Rodrigues
+ */
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {

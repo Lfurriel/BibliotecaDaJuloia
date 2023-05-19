@@ -9,6 +9,15 @@ public class Professor extends Usuario {
     private String departamento;
     private String titulacao;
 
+    /**
+     * Método Contrutor
+     * @param nome Nome do usuário
+     * @param matricula Matícula do usuário
+     * @param cpf CPF do usuário
+     * @param senha Senha do usuário
+     * @param departamento Departamento do professor
+     * @param titulacao Titulação do professor
+     */
     public Professor(String nome, String matricula, String cpf, String senha, String departamento, String titulacao) {
         super(nome, matricula, cpf, senha);
         this.departamento = departamento;
@@ -19,18 +28,15 @@ public class Professor extends Usuario {
         return departamento;
     }
 
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
-    }
-
     public String getTitulacao() {
         return titulacao;
     }
 
-    public void setTitulacao(String titulacao) {
-        this.titulacao = titulacao;
-    }
-
+    /**
+     * Calculo de multa de acordo com a quantidade de dias de atraso
+     * @param emprestimo Objeto Empréstimo a ser devolvido
+     * @return Valor da multa
+     */
     @Override
     public double verificaMulta(Emprestimo emprestimo) {
 
@@ -45,6 +51,9 @@ public class Professor extends Usuario {
         return 0;
     }
 
+    /**
+     * @return Nome da Classe
+     */
     @Override
     public String toString() {
         return "Professor";

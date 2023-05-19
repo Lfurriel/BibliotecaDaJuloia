@@ -8,6 +8,14 @@ import java.util.Date;
 public class AcessorTecnico extends Usuario {
     private String secao;
 
+    /**
+     * Método Contrutor
+     * @param nome Nome do usuário
+     * @param matricula Matícula do usuário
+     * @param cpf CPF do usuário
+     * @param senha Senha do usuário
+     * @param secao Seção do Acessor Técnico
+     */
     public AcessorTecnico(String nome, String matricula, String cpf, String senha, String secao) {
         super(nome, matricula, cpf, senha);
         this.secao = secao;
@@ -17,10 +25,11 @@ public class AcessorTecnico extends Usuario {
         return secao;
     }
 
-    public void setSecao(String secao) {
-        this.secao = secao;
-    }
-
+    /**
+     * Calculo de multa de acordo com a quantidade de dias de atraso
+     * @param emprestimo Objeto Empréstimo a ser devolvido
+     * @return Valor da multa
+     */
     @Override
     public double verificaMulta(Emprestimo emprestimo) {
         Date dataReal = emprestimo.getDevolucaoReal();;
@@ -34,6 +43,9 @@ public class AcessorTecnico extends Usuario {
         return 0;
     }
 
+    /**
+     * @return Nome da Classe
+     */
     @Override
     public String toString() {
         return "Acessor técnico";

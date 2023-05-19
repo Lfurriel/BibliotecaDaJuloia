@@ -14,6 +14,9 @@ import javafx.scene.control.PasswordField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de pagar-multa.fxml
+ */
 public class PagarMultaController implements Initializable {
 
     @FXML
@@ -31,6 +34,10 @@ public class PagarMultaController implements Initializable {
         Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
         valor.setText("R$" + biblioteca.getContaLogada().getMulta());
         ok.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar botão ok -> valida a senha do usuário e zera a multa da conta logada
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 Biblioteca biblioteca = DBUtils.getDisplayBiblioteca().getMinhaBiblioteca();
@@ -49,6 +56,10 @@ public class PagarMultaController implements Initializable {
         });
 
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar botão sair -> volta para a tela de usuário
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");

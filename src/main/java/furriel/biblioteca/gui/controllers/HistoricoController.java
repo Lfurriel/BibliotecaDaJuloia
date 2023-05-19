@@ -16,6 +16,9 @@ import furriel.biblioteca.utils.Utils;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller de historico.fxml
+ */
 public class HistoricoController implements Initializable {
     @FXML
     private Label classe;
@@ -50,9 +53,12 @@ public class HistoricoController implements Initializable {
         Usuario contaLogada = biblioteca.getContaLogada();
         iniciar(contaLogada);
         proximo.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão próximo -> Avança, se possível, na lista de empréstimos e mostra na tela
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
-
                 index ++;
                 if (index < biblioteca.getContaLogada().getEmprestimos().size() && contaLogada.getEmprestimos().get(index).isDevolvido())
                     setEmprestimo(biblioteca.getContaLogada().getEmprestimos().get(index));
@@ -67,6 +73,10 @@ public class HistoricoController implements Initializable {
         });
 
         sair.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Ao pressionar o botão sair -> volta para a tela inicial
+             * @param event Botão pressionado
+             */
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "menu-usuario.fxml", "MENU");
@@ -74,6 +84,10 @@ public class HistoricoController implements Initializable {
         });
     }
 
+    /**
+     * Busca na lista de histórico o primeiro que já foi devolvido
+     * @param contaLogada Conta logada em biblioteca
+     */
     private void iniciar(Usuario contaLogada) {
         index = 0;
         while (index < contaLogada.getEmprestimos().size() && !contaLogada.getEmprestimos().get(index).isDevolvido()) {
@@ -83,6 +97,10 @@ public class HistoricoController implements Initializable {
             setEmprestimo(contaLogada.getEmprestimos().get(index));
     }
 
+    /**
+     * Printa na tela o objeto de emprestimo
+     * @param emprestimo Objeto a ser exibido
+     */
     private void setEmprestimo(Emprestimo emprestimo) {
 
         Item item = emprestimo.getItem();
